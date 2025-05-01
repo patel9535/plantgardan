@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Billing - Plant Store</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f4f9f4;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #006b14;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .cart-summary ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .cart-summary li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .total-amount {
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    .payment-options label {
+      display: block;
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .payment-options input[type="radio"] {
+      margin-right: 12px;
+      transform: scale(1.2);
+    }
+
+    .payment-options label:hover {
+      background-color: #e8ffe8;
+    }
+
+    .payment-options input[type="radio"]:checked + span {
+      font-weight: bold;
+      color: #006b14;
+    }
+
+    .complete-btn {
+      background-color: #006b14;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .complete-btn:hover {
+      background-color: #004f0f;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .card-info {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card-info label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.card-info input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<!-- Address Section -->
+<div id="address-section" style="padding: 20px; border: 1px solid #ccc; border-radius: 10px; max-width: 600px; margin: auto; margin-bottom: 30px;">
+  <h2>Enter Your Address</h2>
+  <div style="margin-bottom: 10px;">
+    <label>Full Name:</label><br>
+    <input type="text" id="full-name" style="width: 100%; padding: 8px;">
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label>Mobile Number:</label><br>
+    <input type="text" id="mobile" style="width: 100%; padding: 8px;">
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label>Address Line:</label><br>
+    <textarea id="address-line" rows="3" style="width: 100%; padding: 8px;"></textarea>
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label>City:</label><br>
+    <input type="text" id="city" style="width: 100%; padding: 8px;">
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label>State:</label><br>
+    <input type="text" id="state" style="width: 100%; padding: 8px;">
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label>PIN Code:</label><br>
+    <input type="text" id="pincode" style="width: 100%; padding: 8px;">
+  </div>
+  <button onclick="submitAddress()" style="padding: 10px 20px; background-color: green; color: white; border: none; border-radius: 5px;">Address Complete</button>
+</div>
+
+
+
+<!-- Hidden Billing Section -->
+<div id="billing-section" style="display: none;">
+  <div class="container">
+    <h2>Billing & Payment</h2>
+
+    <div class="section cart-summary">
+      <h3>Cart Summary</h3>
+      <ul id="cart-list"></ul>
+      <div class="total-amount" id="total-amount">Total: ₹0.00</div>
+    </div>
+
+    <div class="section payment-method">
+      <h3>Select Payment Method</h3>
+      <div class="payment-options">
+        <label>
+          <input type="radio" name="payment" value="upi" id="upi-option">
+          <span>UPI (Google Pay / PhonePe / Paytm)</span>
+
+          <!-- Sub-field for UPI ID -->
+          <div id="upi-subfield" style="display: none; margin-top: 10px;">
+            <input type="text" id="upi-id" placeholder="Enter your UPI ID" style="display:block; padding:8px; width:100%; border-radius:6px; border:1px solid #ccc;">
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="payment" value="card" id="card-option">
+          <span>Credit/Debit Card</span>
+
+          <!-- Sub-fields (initially hidden) -->
+          <div id="card-subfields" style="display: none; margin-top: 10px;">
+            <input type="text" id="card-number" placeholder="Card Number" maxlength="19" style="display:block; margin-bottom:10px; padding:8px; width:100%; border-radius:6px; border:1px solid #ccc;">
+            <input type="password" id="card-cvv" placeholder="CVV" maxlength="3" style="display:block; padding:8px; width:100%; border-radius:6px; border:1px solid #ccc;">
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="payment" value="cod">
+          <span>Cash on Delivery (COD)</span>
+        </label>
+      </div>
+    </div>
+
+    <button class="complete-btn" onclick="completePayment()">Complete Payment</button>
+    <div class="note">You will be redirected to the homepage after successful payment.</div>
+  </div>
+</div>
+
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+      const cartList = document.getElementById('cart-list');
+      const totalAmount = document.getElementById('total-amount');
+      let total = 0;
+
+      cartList.innerHTML = '';
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${item.name}</span><span>₹${item.price.toFixed(2)}</span>`;
+        cartList.appendChild(li);
+        total += item.price;
+      });
+
+      totalAmount.textContent = `Total: ₹${total.toFixed(2)}`;
+    }
+
+    function completePayment() {
+      const selectedOption = document.querySelector('input[name="payment"]:checked');
+      if (!selectedOption) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      alert("Order placed successfully! 🌿 Thank you for shopping with us.");
+
+      // Clear cart and redirect
+      localStorage.removeItem('cart');
+      window.location.href = 'index.html';
+    }
+
+    renderCart();
+
+    document.querySelectorAll('input[name="payment"]').forEach(option => {
+  option.addEventListener('change', () => {
+    const cardFields = document.getElementById('card-subfields');
+    if (option.value === 'card' && option.checked) {
+      cardFields.style.display = 'block';
+    } else {
+      cardFields.style.display = 'none';
+    }
+  });
+});
+
+
+document.querySelectorAll('input[name="payment"]').forEach(option => {
+  option.addEventListener('change', () => {
+    const cardFields = document.getElementById('card-subfields');
+    const upiField = document.getElementById('upi-subfield');
+
+    if (option.value === 'card' && option.checked) {
+      cardFields.style.display = 'block';
+      upiField.style.display = 'none';
+    } else if (option.value === 'upi' && option.checked) {
+      cardFields.style.display = 'none';
+      upiField.style.display = 'block';
+    } else {
+      cardFields.style.display = 'none';
+      upiField.style.display = 'none';
+    }
+  });
+});
+
+
+
+// Address function 
+function submitAddress() {
+  const name = document.getElementById('full-name').value.trim();
+  const mobile = document.getElementById('mobile').value.trim();
+  const address = document.getElementById('address-line').value.trim();
+  const city = document.getElementById('city').value.trim();
+  const state = document.getElementById('state').value.trim();
+  const pincode = document.getElementById('pincode').value.trim();
+
+  if (!name || !mobile || !address || !city || !state || !pincode) {
+    alert("Please fill in all address fields.");
+    return;
+  }
+
+  const fullAddress = {
+    name,
+    mobile,
+    address,
+    city,
+    state,
+    pincode
+  };
+  localStorage.setItem('userAddress', JSON.stringify(fullAddress));
+
+  // Hide address section and show billing
+  document.getElementById('address-section').style.display = 'none';
+  document.getElementById('billing-section').style.display = 'block';
+  document.getElementById('billing-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+  </script>
+
+  <script src ="../script.js"></script>
+</body>
+</html>

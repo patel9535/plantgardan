@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Plants Garden</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(56, 167, 0, 0.696), rgba(247, 247, 247, 0.705)), url('img/hangingp.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .contact {
+      padding: 100px 0;
+    }
+
+    .heading {
+      text-align: center;
+    }
+
+    .heading h2 {
+      font-size: 39px;
+      font-weight: 700;
+    }
+
+    .heading h2 span {
+      color: #000000;
+    }
+
+    .heading p {
+      color: #000000;
+      font-size: 19px;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .col-md-5, .col-md-7 {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .title h3 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #003b03;
+    }
+
+    .title p {
+      color: #000000;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .info {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .info i {
+      font-size: 30px;
+      color: #2e7d32;
+      margin-right: 15px;
+      margin-top: 5px;
+    }
+
+    .info h4 {
+      font-size: 19px;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .info h4 span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: #000000;
+    }
+
+    form {
+      background: #d4d4d4e1;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }   
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #1b5e20;
+    }
+
+    .success-message {
+      text-align: center;
+      color: #2e7d32;
+      margin-top: 15px;
+      font-weight: 500;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="heading">
+      <h2>Contact <span>Us</span></h2>
+      <p>We'd love to hear from you! Whether you have a question about plants, orders, or anything else.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="title">
+          <h3>Contact Details</h3>
+          <p>Feel free to reach out to us through the information below or using the form.</p>
+        </div>
+        <div class="content">
+          <div class="info">
+            <i class="fas fa-phone-alt"></i>
+            <h4>PHONE:<br><span>+91 9054608555</span></h4>
+          </div>
+          <div class="info">
+            <i class="far fa-envelope"></i>
+            <h4>EMAIL:<br><span>contact@plantsgarden.com</span></h4>
+          </div>
+          <div class="info">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>ADDRESS:<br><span>380028 Narol Road, Narolgam, ahmedabad, Gujarat</span></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7">
+        <form id="contactForm" onsubmit="return submitContactForm()">
+          <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+          <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+          <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+          <textarea class="form-control" id="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Now!</button>
+          <div class="success-message" id="successMsg">🌿 Message sent successfully!</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function submitContactForm() {
+    event.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const successMsg = document.getElementById("successMsg");
+
+    if (!name || !email || !subject || !message) {
+      alert("Please fill out all the fields!");
+      return false;
+    }
+
+    // Simulated success
+    successMsg.style.display = "block";
+    setTimeout(() => {
+      successMsg.style.display = "none";
+      document.getElementById("contactForm").reset();
+    }, 3000);
+    return false;
+  }
+</script>
+
+</body>
+</html>

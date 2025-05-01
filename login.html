@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up - Plants Garden</title>
+  <style>
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Login Page Styles */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #76b852, #8DC26F);
+  padding: 20px;
+}
+
+.login-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 400px;
+  animation: scaleUp 0.4s ease forwards;
+  position: relative;
+}
+
+/* Title */
+.login-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2e2e2e;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Inputs */
+.login-input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px 15px;
+  font-size: 15px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.login-input:focus {
+  border-color: #5cb85c;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(92, 184, 92, 0.2);
+}
+
+/* Password Visibility */
+.password-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* Button */
+.login-button {
+  background-color: #5cb85c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #449d44;
+}
+
+/* Checkbox and Toggle Link */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.login-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.login-options input[type="checkbox"] {
+  accent-color: #5cb85c;
+}
+
+/* Toggle Link */
+#toggle-text {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+#toggle-text a {
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#toggle-text a:hover {
+  text-decoration: underline;
+}
+
+/* Toast Styles */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.success { background: #4CAF50; }
+.toast.error { background: #f44336; }
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Footer */
+.login-footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+/* Animations */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+</style>
+
+  </style>
+</head>
+
+<body class="login-body">
+  <div class="login-container">
+    <h2 id="form-title" class="login-title">Login to Plants Garden</h2>
+    <form id="auth-form" class="login-form">
+
+      <div id="name-group" style="display: none;">
+        <label class="login-label" for="first-name">First Name</label>
+        <input class="login-input" type="text" id="first-name" placeholder="Enter first name">
+
+        <label class="login-label" for="last-name">Last Name</label>
+        <input class="login-input" type="text" id="last-name" placeholder="Enter last name">
+      </div>
+
+      <label class="login-label" for="email">Email</label>
+      <input class="login-input" type="email" id="email" placeholder="Enter email" required>
+
+      <div class="password-wrapper">
+        <label class="login-label" for="password">Password</label>
+        <input class="login-input" type="password" id="password" placeholder="Enter password" required>
+        <span class="password-toggle" onclick="togglePassword('password', this)">&#128065;</span>
+      </div>
+
+      <div id="confirm-password-group" style="display: none;">
+        <div class="password-wrapper">
+          <label class="login-label" for="confirm-password">Confirm Password</label>
+          <input class="login-input" type="password" id="confirm-password" placeholder="Confirm password">
+          <span class="password-toggle" onclick="togglePassword('confirm-password', this)">&#128065;</span>
+        </div>
+      </div>
+
+      <div class="login-options">
+        <label><input type="checkbox" id="remember-me"> Remember me</label>
+      </div>
+
+      <button type="submit" id="submit-button" class="login-button">Login</button>
+
+      <div id="toggle-text" class="login-links">
+        Don’t have an account? <a href="#" id="toggle-link">Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('auth-form');
+      const toggleLink = document.getElementById('toggle-link');
+      const toggleText = document.getElementById('toggle-text');
+      const formTitle = document.getElementById('form-title');
+      const submitButton = document.getElementById('submit-button');
+      const confirmPasswordGroup = document.getElementById('confirm-password-group');
+      const nameGroup = document.getElementById('name-group');
+      const toast = document.getElementById('toast');
+      let isSignUp = false;
+
+      function showToast(message, type = 'success') {
+        toast.textContent = message;
+        toast.className = `toast show ${type}`;
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+
+      function togglePassword(id, el) {
+        const input = document.getElementById(id);
+        input.type = input.type === 'password' ? 'text' : 'password';
+        el.textContent = input.type === 'password' ? '\u{1F441}' : '\u{1F576}';
+      }
+
+      function updateFormMode() {
+        formTitle.textContent = isSignUp ? 'Create Your Account' : 'Login to Plants Garden';
+        submitButton.textContent = isSignUp ? 'Sign Up' : 'Login';
+        toggleText.innerHTML = isSignUp
+          ? 'Already have an account? <a href="#" id="toggle-link">Login</a>'
+          : 'Don’t have an account? <a href="#" id="toggle-link">Sign Up</a>';
+
+        confirmPasswordGroup.style.display = isSignUp ? 'block' : 'none';
+        nameGroup.style.display = isSignUp ? 'block' : 'none';
+
+        document.getElementById('toggle-link').addEventListener('click', toggleMode);
+      }
+
+      function toggleMode(e) {
+        e.preventDefault();
+        isSignUp = !isSignUp;
+        updateFormMode();
+      }
+
+      toggleLink.addEventListener('click', toggleMode);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirm-password')?.value.trim();
+        const firstName = document.getElementById('first-name')?.value.trim();
+        const lastName = document.getElementById('last-name')?.value.trim();
+        const rememberMe = document.getElementById('remember-me').checked;
+
+        handleAuth(email, password, confirmPassword, firstName, lastName, rememberMe);
+      });
+
+      function handleAuth(email, password, confirmPassword, firstName, lastName, rememberMe) {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+        if (!email || !password) {
+          showToast('Email and password are required.', 'error');
+          return;
+        }
+
+        if (!passwordRegex.test(password)) {
+          showToast('Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one digit.', 'error');
+          return;
+        }
+
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        if (isSignUp) {
+          if (!firstName || !lastName) {
+            showToast('First name and last name are required.', 'error');
+            return;
+          }
+
+          if (password !== confirmPassword) {
+            showToast('Passwords do not match.', 'error');
+            return;
+          }
+
+          const emailExists = users.find(user => user.email === email);
+          if (emailExists) {
+            showToast('Email already exists. Please login or use another email.', 'error');
+            return;
+          }
+
+          users.push({ email, password, firstName, lastName });
+          localStorage.setItem('users', JSON.stringify(users));
+          localStorage.setItem('loggedInUser', JSON.stringify({ email, firstName, rememberMe }));
+
+          showToast('Account created successfully!');
+          setTimeout(() => window.location.href = 'index.html', 1000);
+        } else {
+          const user = users.find(user => user.email === email);
+
+          if (!user) {
+            showToast("This email doesn't exist. Please sign up.", 'error');
+            return;
+          }
+
+          if (user.password !== password) {
+            showToast('Incorrect password. Try again.', 'error');
+            return;
+          }
+
+          localStorage.setItem('loggedInUser', JSON.stringify({ email: user.email, firstName: user.firstName, rememberMe }));
+          showToast('Successfully logged in!');
+
+          setTimeout(() => window.location.href = 'index.html', 1000);
+        }
+      }
+
+      // Auto logout after 10 minutes if not remembered
+      window.addEventListener('load', () => {
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (user && !user.rememberMe) {
+          setTimeout(() => {
+            localStorage.removeItem('loggedInUser');
+            showToast('Session expired. Please log in again.', 'error');
+          }, 10 * 60 * 1000);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

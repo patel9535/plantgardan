@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>plants Garden </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Shopping Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+<span id="cart-total"></span>
+
+  <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Floating Cart Icon -->
+<div class="cart-icon-container" onclick="toggleCart()">
+  🛒<span id="cart-count">0</span>
+</div>
+
+  <header class="flowering-page-header">
+    <h1>Plants Garden</h1>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">🌱 Plants Garden</div>
+
+    
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search plants..."
+              oninput="handleSearch(this.value)"
+            />
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+        
+
+
+    
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#classification">Shop</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+<!-- Login link -->
+<li id="nav-login"><a href="login.html">Login</a></li>
+
+<!-- User menu (hidden by default) -->
+<li id="user-menu" style="display: none; position: relative;">
+  <span id="user-name" style="cursor: pointer;"></span>
+  <ul id="user-dropdown" style="display: none; position: absolute; background: #006b14f2; border: 1px solid #00540ae1;border-radius: 9px; padding: 10px;">
+    <li><a href="index.html">Account</a></li>
+    <li><a href="#" id="logout-link">Logout</a></li>
+  </ul>
+</li>
+        </ul>
+      </div>
+
+
+
+    </nav>
+
+    
+  </header>
+
+    <h2 style="
+    font-size: 36px;
+    font-weight: 700;
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #006c00;
+  ">
+    Shop Our <span style="color: #000000;">Trending Plants</span>
+  </h2>
+        <div class="grid">
+
+
+      <!-- trending  cards -->
+
+      <div class="card">
+        <img src="img/t1.webp" alt="Pothos">
+        <div class="card-content">
+          <h3>Wandering Jew plant</h3>
+          <p style="text-align: center;">₹169</p>
+          <button class="add-to-cart-btn" onclick="addToCart('Wandering jew plant', 169)">Add to Cart</button>
+
+        </div>
+        <a href="billing.html">Buy Now</a>
+
+      </div>
+      <div class="card">
+        <img src="img/t2.webp" alt="Bird of Paradise">
+        <div class="card-content">
+          <h3>Betal leaf plant</h3>
+          <p style="text-align: center;">₹249</p>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart('Betal leaf plat', 249)">Add to Cart</button>
+
+        <a href="billing.html">Buy Now</a>
+      </div>
+
+
+      <div class="card">
+        <img src="img/t3.webp" alt="Philodendron Xanadu">
+        <div class="card-content">
+          <h3>Rugmini Plant</h3>
+          <p style="text-align: center;">₹229</p>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart('Rugmini plant', 229)">Add to Cart</button>
+
+        <a href="billing.html">Buy Now</a>
+      </div>
+
+
+      <div class="card">
+        <img src="img/t4.webp" alt="Succulent Plant">
+        <div class="card-content">
+          <h3>Peacelily Plant</h3>
+          <p style="text-align: center;">₹429</p>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart('Peacelily plant', 429)">Add to Cart</button>
+
+        <a href="billing.html">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!--classification section-->
+  <div class="classification-section" id="classification">
+    <div class="classification-header">
+  <h2 style="
+  font-size: 36px;
+  font-weight: 700;
+  color: #2e7d32;
+  text-align: center; 
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #009100;
+"> Classification <span style="color: #000000;"> of Plants : </span>
+</h2>
+</div>
+
+
+
+
+
+
+    <div class="classification-cards">
+      <div class="classification-card">
+        <img src="img/floweringp.jpg" alt="Flowering Plants">
+        <div class="card-content">
+          <h3>Flowering Plants</h3>
+          <p>Explore the beautiful world of flowering plants</p>
+        </div>
+        <a href="cards/flowering.html">View more </a>
+      </div>
+
+
+      <div class="classification-card">
+        <img src="img/hangingp.jpg" alt="Hanging Plants">
+        <div class="card-content">
+          <h3>Hanging Plants</h3>
+          <p>Discover the charm of hanging plants</p>
+        </div>
+        <a href="cards/hanging.html" class="btn">View more </a>
+      </div>
+
+
+
+      <div class="classification-card">
+        <img src="img/indoorp.jpg" alt="Indoor Plants">
+        <div class="card-content">
+          <h3>Indoor Plants</h3>
+          <p>Learn about the benefits of indoor plants</p>
+        </div>
+        <a href="cards/indoor.html">View more </a>
+      </div>
+
+      <div class="classification-card">
+        <img src="img/medicinep.jpg" alt="Medicine Plants">
+        <div class="card-content">
+          <h3>Medicine Plants</h3>
+          <p>Explore the healing properties of medicine plants</p>
+        </div>
+        <a href="cards/medicine.html">View more </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- End of Classification Cards -->
+
+
+
+  <!-- Care Tips Section -->
+<section id="care-tips" style="padding: 60px 20px; background: #f4fdf2;">
+  <div style="max-width: 1000px; margin: auto;">
+    <h2 style="font-size: 32px; text-align: center; color: #2e7d32; border-bottom: 2px solid #ff9100; display: inline-block; padding-bottom: 10px;">Plant Care Tips</h2>
+    <p style="text-align: center; font-size: 16px; color: #555; margin: 10px 0 30px;">Keep your plants happy and healthy with these quick tips.</p>
+    
+    <ul style="list-style: disc; padding-left: 40px; font-size: 16px; color: #333; line-height: 1.8;">
+      <li><strong>Water Wisely:</strong> Water when the top inch of soil feels dry. Avoid overwatering.</li>
+      <li><strong>Choose the Right Light:</strong> Match lighting to the plant type — some need full sun, others indirect.</li>
+      <li><strong>Monitor Humidity:</strong> Mist tropical plants or use a humidifier if needed.</li>
+      <li><strong>Feed Them Well:</strong> Fertilize during growing seasons (spring/summer).</li>
+      <li><strong>Repot When Needed:</strong> Repot if roots outgrow the container or soil is poor.</li>
+      <li><strong>Avoid Drafts:</strong> Keep plants away from AC or heater vents to reduce stress.</li>
+      <li><strong>Regular Pruning:</strong> Remove dead leaves to promote healthy growth.</li>
+    </ul>
+  </div>
+</section>
+
+
+  
+
+
+
+
+<section id="about" style="padding: 80px 0; background-color: #f0f9f1;">
+  <div style="max-width: 1100px; margin: auto; padding: 0 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h2 style="font-size: 36px; font-weight: 700; color: #2e7d32;">About <span style="color: #ff9100;">Us</span></h2>
+      <p style="color: #555; font-size: 16px; max-width: 700px; margin: 10px auto;">
+        Discover the roots of our green passion.
+      </p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+      <div style="flex: 1; min-width: 300px;">
+        <img src="indoorp.jpg" alt="About Plants Garden" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <h3 style="font-size: 24px; color: #2e7d32; margin-bottom: 20px;">Our Story</h3>
+        <p style="font-size: 15px; color: #444; line-height: 1.8;">
+          At <strong>Plants Garden</strong>, we believe that every home deserves a touch of green. Our journey began with a simple love for nature and the joy of nurturing life through plants.
+          What started as a backyard hobby has now grown into a full-fledged community for plant lovers.
+        </p>
+        <p style="font-size: 15px; color: #444; line-height: 1.8; margin-top: 15px;">
+          We offer a wide variety of indoor and outdoor plants, gardening tools, and expert advice to help you grow your green space. Whether you're a beginner or a seasoned plant parent, we're here to support your growth journey.
+        </p>
+        <a href="index.html#classification" style="display: inline-block; margin-top: 20px; padding: 12px 25px; background-color: #2e7d32; color: #fff; border-radius: 6px; text-decoration: none;">Explore Our Plants</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <footer>
+    <p>&copy; 2025 Plants Garden. All rights reserved.</p>
+  </footer>
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+
+</html>
