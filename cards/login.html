@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Plants Garden</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('header.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(1px);
+  z-index: -1s;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 103, 3, 0.4), rgba(255, 255, 255, 0.2));
+  z-index: -1;
+}
+
+
+  .container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.235), rgba(138, 138, 138, 0.185));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 600px;
+  height: 590px;
+  padding:95px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+    h1 {
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fffffffb;
+      font-weight: 1000;
+    
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #000000;
+      font-weight: 900;
+      font-size: large;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #66bb6a;
+    }
+
+    .button {
+      width: 100%;
+      background-color: #000000;
+      color: rgb(255, 255, 255);
+      padding: 12px;
+      font-size: 20px;  
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #585858;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 15px;
+      color: #ffffff;
+      font-size: 17px;
+    }
+
+    .toggle-link a {
+      color: #00ae03;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="form-title">Login to Plants Garden</h1>
+    <form id="auth-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+
+      <div class="form-group" id="confirm-password-group" style="display: none;">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm your password" />
+      </div>
+
+      <button type="submit" class="button" id="submit-button">Login</button>
+    </form>
+
+    <div class="toggle-link" id="toggle-text">
+      Don't have an account? <a href="#" id="toggle-link">Sign Up</a>
+    </div>
+
+    <div class="footer">
+      © 2025 Plants Garden. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('auth-form');
+    const toggleLink = document.getElementById('toggle-link');
+    const toggleText = document.getElementById('toggle-text');
+    const formTitle = document.getElementById('form-title');
+    const submitButton = document.getElementById('submit-button');
+    const confirmPasswordGroup = document.getElementById('confirm-password-group');
+
+    let isSignUp = false;
+
+    toggleLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      isSignUp = !isSignUp;
+
+      if (isSignUp) {
+        formTitle.textContent = 'Create Your Account';
+        submitButton.textContent = 'Sign Up';
+        toggleText.innerHTML = 'Already have an account? <a href="#" id="toggle-link">Login</a>';
+        confirmPasswordGroup.style.display = 'block';
+      } else {
+        formTitle.textContent = 'Login to Plants Garden';
+        submitButton.textContent = 'Login';
+        toggleText.innerHTML = 'Don\'t have an account? <a href="#" id="toggle-link">Sign Up</a>';
+        confirmPasswordGroup.style.display = 'none';
+      }
+
+      document.getElementById('toggle-link').addEventListener('click', arguments.callee);
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+      if (isSignUp) {
+        if (password !== confirmPassword) {
+          alert('Passwords do not match.');
+          return;
+        }
+        alert('Account created successfully!');
+        // Redirect or handle sign-up logic
+      } else {
+        alert('Login successful!');
+        window.location.href = '../index.html'; // Redirect to homepage
+      }
+    });
+  </script>
+</body>
+</html>

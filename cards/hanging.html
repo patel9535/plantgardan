@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanging plants </title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+ <!-- Shopping Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Floating Cart Icon -->
+<div class="cart-icon-container" onclick="toggleCart()">
+  🛒<span id="cart-count">0</span>
+</div>
+
+
+
+
+
+
+  <header class="flowering-page-header">
+    <h1>Explore Hanging Plants</h1>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">🌱 Plants Garden</div>
+
+    
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search plants..."
+              oninput="handleSearch(this.value)"
+            />
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+        
+        <ul class="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#classification">Shop</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href=" contact.html">Contact</a></li>
+<!-- Login link -->
+<li id="nav-login"><a href="login.html">Login</a></li>
+
+<!-- User menu (hidden by default) -->
+<li id="user-menu" style="display: none; position: relative;">
+  <span id="user-name" style="cursor: pointer;"></span>
+  <ul id="user-dropdown" style="display: none; position: absolute; background: #006b14f2; border: 1px solid #00540ae1;border-radius: 9px; padding: 10px;">
+    <li><a href="index.html">Account</a></li>
+    <li><a href="#" id="logout-link">Logout</a></li>
+  </ul>
+</li>        </ul>
+    
+      </div>
+    </nav>
+
+
+  <main class="flowering-page-main">
+    <section class="flowering-page-section">
+  
+      
+      <div class="classification-card">
+        <img src="../img/hp1.jpeg">
+        <div class="card-content">
+          <h3>  Petunia </h3>
+          <h3>Rs.259</h3>
+          <p> Technically a tender perennial, many modern petunia hybrids are now grown as 
+            annuals in all USDA Plant Hardiness Zones. Their voluminous flowers also make
+             petunias ideal for outdoor hanging baskets, but know that some varieties do require a bit of 
+            
+           </p>
+           <button class="add-to-cart-btn" onclick="addToCart('Petunia', 259)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/hp2.jpeg">
+      <div class="card-content">
+        <h3> Verbena </h3>
+        <h3>Rs.229</h3>
+
+        <p> L Alfonse//Getty Images
+          3
+          Verbena
+          Known for its stress-relieving essential oils, verbena is a beautiful hanging plant
+          
+          that comes in more than 250 different varieties.
+           These butterfly-attracting plants demands lots of sun (8 to 10 hours per day)
+            and a well-draining soil.
+            </p>
+            <button class="add-to-cart-btn" onclick="addToCart('verbena', 229)">Add to Cart</button>
+
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+     <div class="classification-card">
+        <img src="../img/hp3.jpeg">
+        <div class="card-content">
+          <h3>  Moss Rose   </h3>
+          <h3>Rs.299</h3>
+
+          <p> Thanks to its succulent leaves, this drought-tolerant,
+             sun-loving plant can take the heat. Also known as moss rose purslane,
+             Mexican rose, sun rose, and rock rose, it spills over outdoor hanging
+              baskets beautifully and thrives in well-drained soil.
+              Its flowers are available in white and an array
+      </p>
+      <button class="add-to-cart-btn" onclick="addToCart('Moss rose', 299)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+     <div class="classification-card">
+        <img src="../img/hp4.jpg">
+        <div class="card-content">
+          <h3> Lobelia  </h3>
+          <h3>Rs.199</h3>
+
+          <p> Lobelia comes in incredibly intense blue colors, which are a bit of a rarity in the plant world. Place them in full sun to part shade. Technically a tender perennial, as an annual
+            , blue 
+            </p>
+            <button class="add-to-cart-btn" onclick="addToCart('Lobelia', 199)">Add to Cart</button>
+            
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/hp5.jpg">
+        <div class="card-content">
+          <h3> Pansies    </h3>
+          <h3>Rs.359</h3>
+
+          <p> Self-seeding, easy-to-grow pansies prefer cooler weather, namely in the late fall and early spring.
+             The blooms have also gained attention for their exquisite face-like petals.</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Pansies', 359)">Add to Cart</button>
+
+        <a href="../billing.html">Buy Now  </a>
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/hp6.jpg">
+        <div class="card-content">
+          <h3>  Strawberries </h3>
+          <h3>Rs.459</h3>
+
+          <p> Yes, that summery favorite of fruit-forward desserts is also an easy plant to grow in 
+            
+            hanging container! Sun-loving strawberries are distantly related to the rose,
+             so the flowers </p>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart('Strawberries', 459)">Add to Cart</button>
+
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/hp7.jpeg">
+      <div class="card-content">
+        <h3> Hanging Fuchsia  </h3>
+        <h3>Rs.159</h3>
+
+        <p> Know that fuchsias don’t bode well in hot climates, but they are great as outdoor hanging
+           plants for summer and will attract hummingbirds.
+           They do wonderfully along the coast or in cool areas.
+         </p>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart('Hanging Fuchsia', 159)">Add to Cart</button>
+
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+
+        <div class="classification-card">
+        <img src="../img/fp8.jpg">
+        <div class="card-content">
+          <h3>  Bachelors Button  </h3>
+          <h3>Rs.259</h3>
+
+          <p> Also known as Cornflower, this pretty little bloom looks like a daisy, except in bright blue, pink, lavender, and maroon hues.
+            They are annual plants that bloom from late spring to late summer.
+            </p>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart('Bachelors Button', 259)">Add to Cart</button>
+
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+
+    <div class="classification-card">
+      <img src="../img/t1.webp">
+      <div class="card-content">
+        <h3>  Wandering Jew Plant  </h3>
+        <h3>Rs.169</h3>
+
+        <p> Also known as Cornflower, this pretty little bloom looks like a daisy, except in bright blue, pink, lavender, and maroon hues.
+          They are annual plants that bloom from late spring to late summer.
+          </p>
+      </div>
+      <button class="add-to-cart-btn" onclick="addToCart('Wandering jew plant', 169)">Add to Cart</button>
+
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+  <div class="classification-card">
+    <img src="../img/t2.webp">
+    <div class="card-content">
+      <h3>  Betal Leaf </h3>
+      <h3>Rs.249</h3>
+
+      <p> Also known as Cornflower, this pretty little bloom looks like a daisy, except in bright blue, pink, lavender, and maroon hues.
+        They are annual plants that bloom from late spring to late summer.
+        </p>
+    </div>
+    <button class="add-to-cart-btn" onclick="addToCart('Betal Leaf', 249)">Add to Cart</button>
+
+    <a href="../billing.html">Buy Now  </a>
+
+</div>
+
+
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowering Plants</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<!-- Shopping Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+<span id="cart-total"></span>
+
+  <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Floating Cart Icon -->
+<div class="cart-icon-container" onclick="toggleCart()">
+  🛒<span id="cart-count">0</span>
+</div>
+
+
+  <header class="flowering-page-header">
+    <h1>Explore Flowering Plants</h1>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">🌱 Plants Garden</div>
+
+    
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search plants..."
+              oninput="handleSearch(this.value)"
+            />
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+        
+        <ul class="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#classification">Shop</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href=" contact.html">Contact</a></li>
+<!-- Login link -->
+<li id="nav-login"><a href="login.html">Login</a></li>
+
+<!-- User menu (hidden by default) -->
+<li id="user-menu" style="display: none; position: relative;">
+  <span id="user-name" style="cursor: pointer;"></span>
+  <ul id="user-dropdown" style="display: none; position: absolute; background: #006b14f2; border: 1px solid #00540ae1;border-radius: 9px; padding: 10px;">
+    <li><a href="index.html">Account</a></li>
+    <li><a href="#" id="logout-link">Logout</a></li>
+  </ul>
+</li>        </ul>
+    
+      </div>
+    </nav>
+
+  <main class="flowering-page-main">
+    <section class="flowering-page-section">
+  
+      <div class="classification-card">
+        <img src="../img/fp1.webp">
+        <div class="card-content">
+          <h3>  Yarrow  </h3>
+          <h3 style="text-align: center;">Rs.249</h3>
+          <p> Part of the Desert Eve Series, this is one of the earliest blooming Yarrows. 
+            It is a wonderfully bright herbaceous perennial that produces large clusters of bright pink flowers. 
+           It blooms profusely in late spring for several weeks, and each flower has a fluffy yellow center.
+           </p>
+           <button class="add-to-cart-btn" onclick="addToCart('Yarrow', 249)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/fp2.webp">
+      <div class="card-content">
+        <h3> African Daisy  </h3>
+        <h3 style="text-align: center;">Rs.269</h3>
+
+        <p> This is an excellent choice for anyone looking for bright, beautiful blooms
+           all through summer into fall. There are around 70 species of Osteospermum and an increasing 
+           number of cultivars, and the Royal Horticultural Society (RHS) lists about 900 varieties.
+            </p>
+            <button class="add-to-cart-btn" onclick="addToCart('African Daisy', 269)">Add to Cart</button>
+
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+     <div class="classification-card">
+        <img src="../img/fp3.jpg">
+        <div class="card-content">
+          <h3>  African Lily    </h3>
+          <h3 style="text-align: center;">Rs.149</h3>
+
+          <p> Other names include the Star of Bethlehem or the Lily of the Nile,
+             despite only being native to the South of Africa.
+              These evergreen perennials reach heights of up to one meter and produce erect stems carrying 
+              a globe-shaped display of blue, lilac, or white blooms.
+      </p>
+      <button class="add-to-cart-btn" onclick="addToCart('African Lily', 149)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+     <div class="classification-card">
+        <img src="../img/fp4.jpg">
+        <div class="card-content">
+          <h3>  Alpenrose   </h3>
+          <h3 style="text-align: center;">Rs.229</h3>
+
+          <p> This upright evergreen shrub produces glossy, dark-green leaves and clusters of tubular rose pink to crimson flowers
+            . It blooms in the early summer and grows in a compact and upright habit. 
+            The Alpenrose can grow up to five feet high, looking great in the rear of borders and at the side of water gardens
+            </p>
+            <button class="add-to-cart-btn" onclick="addToCart('Alpenrose', 229)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/fp5.jpg">
+        <div class="card-content">
+          <h3>  Amaryllis   </h3>
+          <h3 style="text-align: center;">Rs.349</h3>
+
+          <p> This is a popular bulb given as a gift around the Christmas holidays,
+            thanks to their large, brightly colored blooms supported by large stems. 
+            There are five types of Amaryllis; large flowering, double flowering, small flowering, cybister, and trumpet. 
+            The most popular is the large flowering, it is a nice flower </p>
+            <button class="add-to-cart-btn" onclick="addToCart('Amaryllis', 349)">Add to Cart</button>
+
+            </div>
+        
+        <a href="../billing.html">Buy Now  </a>
+    </div>
+
+
+     <div class="classification-card">
+        <img src="../img/fp6.jpg">
+        <div class="card-content">
+          <h3>  American Lotus   </h3>
+          <h3 style="text-align: center;">Rs.299</h3>
+
+          <p> This might not be as popular as the Sacred Lotus that is more often seen in cultivation. But these flowers provide a blanket of elegance thanks to their pure white petals and a yellow center. They grow up to 12 inches across and are a sight to behold. It is a marginal aquatic perennial that also produces 
+            large umbrella-like leaves.   </p>
+            <button class="add-to-cart-btn" onclick="addToCart('American Lotus', 299)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/fp7.jpg">
+      <div class="card-content">
+        <h3>  Anise Hyssop   </h3>
+        <h3 style="text-align: center;">Rs.349</h3>
+
+        <p>Sometimes known as Hummingbirds Mint, it adds perfect vertical lines to any landscape. 
+          The leaves emit an anise scent when bruised, and they are sometimes used in herbal teas and jellies. 
+          It is a clump-forming perennial that produces vertical spikes that hold onto tubes of lavender flowers.
+         </p>
+         <button class="add-to-cart-btn" onclick="addToCart('Anise Hyssop', 349)">Add to Cart</button>
+
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+
+        <div class="classification-card">
+        <img src="../img/fp8.jpg">
+        <div class="card-content">
+          <h3>  Bachelors Button  </h3>
+          <h3 style="text-align: center;">Rs.229</h3>
+
+          <p> Also known as Cornflower, this pretty little bloom looks like a daisy, except in bright blue, pink, lavender, and maroon hues.
+            They are annual plants that bloom from late spring to late summer. They are carried by long stems and usually with double heads. 
+            These flowers are a magnet for butterflies, </p>
+            <button class="add-to-cart-btn" onclick="addToCart('Bachelors Button',229)">Add to Cart</button>
+
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+<script src="../script.js"></script>
+</body>
+
+</html>

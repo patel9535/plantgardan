@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indoor plants </title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+ 
+<!-- Shopping Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Floating Cart Icon -->
+<div class="cart-icon-container" onclick="toggleCart()">
+  🛒<span id="cart-count">0</span>
+</div>
+
+
+
+
+
+
+  <header class="flowering-page-header">
+    <h1>Explore Indoor Plants</h1>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">🌱 Plants Garden</div>
+
+    
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search plants..."
+              oninput="handleSearch(this.value)"
+            />
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+        
+        <ul class="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#classification">Shop</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href=" contact.html">Contact</a></li>
+<!-- Login link -->
+<li id="nav-login"><a href="login.html">Login</a></li>
+
+<!-- User menu (hidden by default) -->
+<li id="user-menu" style="display: none; position: relative;">
+  <span id="user-name" style="cursor: pointer;"></span>
+  <ul id="user-dropdown" style="display: none; position: absolute; background: #006b14f2; border: 1px solid #00540ae1;border-radius: 9px; padding: 10px;">
+    <li><a href="index.html">Account</a></li>
+    <li><a href="#" id="logout-link">Logout</a></li>
+  </ul>
+</li>        </ul>
+    
+      </div>
+    </nav>
+
+
+
+
+  <main class="flowering-page-main">
+    <section class="flowering-page-section">
+  
+      <div class="classification-card">
+        <img src="../img/ip1.jpg">
+        <div class="card-content">
+          <h3> Pothos Marble Queen Plant </h3>
+          <h3>Rs.129</h3>
+          <p> One of my favorite types of Pothos, this is the Pothos "Marble Queen". 
+            The leaves are colored a mixture of white and green. Pothos are easy care house plants.
+           </p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/ip2.jpg">
+      <div class="card-content">
+        <h3> Lucky "Bamboo" Dracaena Plant</h3>
+        <h3>Rs.290</h3>
+
+        <p>Lucky Bamboo is not bamboo at all, it is a Dracaena plant. Dracaena plants do well in the typical indoor environment.
+           Medium to bright indirect light, more about Lucky Bamboo.
+            </p>
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+     <div class="classification-card">
+        <img src="../img/ip3.jpg">
+        <div class="card-content">
+          <h3>  Golden Pothos </h3>
+          <h3>Rs.329</h3>
+          
+          <p>Golden Pothos, a popular plant for the home, is a trailing or climbing plant.
+             Medium to bright light is best, can be kept in lower light. Easy care house plant.
+      </p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+     <div class="classification-card">
+        <img src="../img/ip4.jpg">
+        <div class="card-content">
+          <h3>Snake Plant</h3>
+          <h3>Rs.559</h3>
+
+          <p> An easy houseplant, Snake Plant does not need much care.
+             Will do best in very bright light, even some morning sun. One of the better house plants for beginners.
+            </p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/ip5.jpg">
+        <div class="card-content">
+          <h3> Arboricola Plant     </h3>
+          <h3>Rs.679</h3>
+
+          <p>This plant is Schefflera Arboricola. This is a braided trunk Arboricola.
+             Arboricola can also have a single trunk, and it is very often grown in a bush form.   </p>
+            </div>
+        
+        <a href="../billing.html">Buy Now  </a>
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/ip6.jpg">
+        <div class="card-content">
+          <h3>  Croton Indoor Plant </h3>
+          <h3>Rs.349</h3>
+
+          <p> Croton is a colorful houseplant. Easy to care for once you have successfully acclimated to your home environment.
+             The plant pictured here is Croton Petra.</p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/ip7.jpg">
+      <div class="card-content">
+        <h3> Anthurium Flowering Plant</h3>
+        <h3>Rs.239</h3>
+
+        <p>If you are looking for a houseplant that is fairly
+           easy to grow and also produces some colorful flowers, you might like the Anthurium plant.
+         </p>
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+
+        <div class="classification-card">
+        <img src="../img/ip8.jpg">
+        <div class="card-content">
+          <h3>  Areca Palm Plant </h3>
+          <h3>Rs.299</h3>
+
+          <p> Picture of Areca Palm plant, sometimes called by common name of Butterfly Palm.
+             Chrysalidocarpus lutescens is the botanical name.
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+
+
+    <div class="classification-card">
+      <img src="../img/t3.webp">
+      <div class="card-content">
+        <h3>  Rugmini plant </h3>
+        <h3>Rs.229</h3>
+
+        <p> Picture of Areca Palm plant, sometimes called by common name of Butterfly Palm.
+           Chrysalidocarpus lutescens is the botanical name.
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+
+  
+
+  <div class="classification-card">
+    <img src="../img/t4.webp">
+    <div class="card-content">
+      <h3>  Peacelily Plant </h3>
+      <h3>Rs.430</h3>
+
+      <p> Picture of Areca Palm plant, sometimes called by common name of Butterfly Palm.
+         Chrysalidocarpus lutescens is the botanical name.
+    </div>
+    <a href="../billing.html">Buy Now  </a>
+
+</div>
+
+
+<script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>medicine plants </title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+      
+<body>
+ <!-- Shopping Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Floating Cart Icon -->
+<div class="cart-icon-container" onclick="toggleCart()">
+  🛒<span id="cart-count">0</span>
+</div>
+
+
+
+
+
+
+  <header class="flowering-page-header">
+    <h1>Explore Indoor Plants</h1>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">🌱 Plants Garden</div>
+
+    
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search plants..."
+              oninput="handleSearch(this.value)"
+            />
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+        
+        <ul class="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#classification">Shop</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href=" contact.html">Contact</a></li>
+<!-- Login link -->
+<li id="nav-login"><a href="login.html">Login</a></li>
+
+<!-- User menu (hidden by default) -->
+<li id="user-menu" style="display: none; position: relative;">
+  <span id="user-name" style="cursor: pointer;"></span>
+  <ul id="user-dropdown" style="display: none; position: absolute; background: #006b14f2; border: 1px solid #00540ae1;border-radius: 9px; padding: 10px;">
+    <li><a href="index.html">Account</a></li>
+    <li><a href="#" id="logout-link">Logout</a></li>
+  </ul>
+</li>        </ul>
+    
+      </div>
+    </nav>
+
+
+  <main class="flowering-page-main">
+    <section class="flowering-page-section">
+  
+      <div class="classification-card">
+        <img src="../img/mp1.jpg">
+        <div class="card-content">
+          <h3> Tulsi </h3>
+          <h3>Rs.329</h3>
+          <p> There are four types of tulsi mentioned in ayurvedic texts ie Rama, Krishna, Vana & Kapoor Tulsi.
+
+            For over the centuries Tulsi (the queen of herbs) has been known for its remarkable healing properties.
+            
+            Tulsi is taken as herbal tea.
+            The oil extracted from the Karpoora Tulsi is mostly used in the herbal toiletry. Its oil is also used against insects and bacteria.
+            The Rama Tulsi is an effective remedy for Severe acute Respiratory Syndrome.
+           </p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/mp2.webp">
+      <div class="card-content">
+        <h3>  Aloe Vera    </h3>
+        <h3>Rs.429</h3>
+
+        <p>  The aloe vera grows only under the sun with well-drained dry or moist soil. Although the plant tastes like a turd, it’s still edible. The sap from aloe vera is extremely useful to speed up the healing & reducing the risk of infections for :
+
+          wounds
+          cuts
+          burns
+          reducing inflammation
+          Apart from its external use on the skin, aloe vera is also taken internally in the treatment of :
+          
+          ulcerative colitis (drinking aloe vera juice)
+          chronic constipation
+          poor appetite
+          digestive problems
+            </p>
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+     <div class="classification-card">
+        <img src="../img/mp3.webp">
+        <div class="card-content">
+          <h3>  Gotu Kola </h3>
+          <h3>Rs.129</h3>
+
+          <p>  The gotu kola acts on various phases of connective tissue development and stimulates healing of :
+
+            ulcers
+            skin injuries
+            decreasing capillary fragility
+            stimulation of the lipids and protein necessary for healthy skin
+            Leaves are thought to maintain youthfulness.
+            Crushed leaves are poulticed to treat open sores.
+            The gotu kola can also be used to :
+            
+            treat leprosy
+            revitalize the brain and nervous system
+            increase attention span and concentration
+            treat venous insufficiency
+      </p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+     <div class="classification-card">
+        <img src="../img/mp4.webp">
+        <div class="card-content">
+          <h3>   Calendula </h3>
+          <h3>Rs.390</h3>
+
+          <p>  It has no problem with nutritionally poor, very acidic or very alkaline soils, just as long as it’s moist. Well known as a remedy for skin problems, 
+            </p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/mp5.webp">
+        <div class="card-content">
+          <h3> Thyme   </h3>
+          <h3>Rs.439</h3>
+
+          <p>   It is mostly known for its strong antiseptic nature. It is wonderful when it comes to the treatment of:
+
+            Congestion
+            Stomach gas
+            Coughs
+               </p>
+            </div>
+        
+        <a href="../billing.html">Buy Now  </a>
+    </div>
+
+
+
+     <div class="classification-card">
+        <img src="../img/mp6.webp">
+        <div class="card-content">
+          <h3>  Rosemary
+          </h3>
+          <h3>Rs.329</h3>
+
+          <p> Rosemary is the great reviver. This perennial woody herb stimulates energy and optimism and sharpens memory and concentration by bringing more oxygen to your brain.</p>
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+    <div class="classification-card">
+      <img src="../img/mp7.webp">
+      <div class="card-content">
+        <h3> Fenugreek, Methi   </h3>
+        <h3>Rs.355</h3>
+
+        <p>Fenugreek seeds are nourishing and taken to :
+
+          encourage weight gain (take note, anorexics)
+          inhibit cancer of the liver
+          lower blood cholesterol levels
+          treat inflammation and ulcers of the stomach and intestines
+          drain off sweat ducts
+          for body building
+          for late onset diabetes
+          poor digestion
+          insufficient lactation
+          painful menstruation
+          labor pains
+          freshen bad breath
+          restore a dull sense of taste
+         </p>
+      </div>
+      <a href="../billing.html">Buy Now  </a>
+  
+  </div>
+
+
+
+        <div class="classification-card">
+        <img src="../img/mp8.webp">
+        <div class="card-content">
+          <h3>  Peppermint </h3>
+          <h3>Rs.229</h3>
+
+          <p>Peppermint is sometimes regarded as ‘the world’s oldest medicine’, with archaeological evidence placing its use at least as far back as ten thousand years ago. Pepeprmint are naturally high in manganese, vitamin A and vitamin C. Crushed leaves rubbed on the skin help soothe and relax the muscles. Infused peppermint leaves are used to :
+
+            reduce irritable bower syndrome
+            against upset stomachs
+        
+        </div>
+        <a href="../billing.html">Buy Now  </a>
+    
+    </div>
+
+
+<script src="../script.js"></script>
+</body>
+
+</html>
